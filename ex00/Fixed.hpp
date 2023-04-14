@@ -7,7 +7,7 @@ class Fixed
 
 private:
     int fixed_point;
-    static const int frac_bits;
+    static const int frac_bits = 8;
 public:
     int getRawBits(void) const;
     void   setRawBits(int const raw);
