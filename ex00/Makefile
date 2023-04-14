@@ -1,6 +1,6 @@
 FLAGS=-Wall -Wextra -Werror -std=c++98
 
-NAME=zombie
+NAME=ex00
 
 SRC=main.cpp\
 	Fixed.cpp\
