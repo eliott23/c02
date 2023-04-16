@@ -9,7 +9,11 @@ int main()
     Fixed const d( b );
     a = Fixed( 5 );
     std::cout << a << std::endl;
-    a = a / b;
+    a = a + b + a + b;
+    std::cout << a << std::endl;
+    a.setRawBits(0);
+    std::cout << --a << std::endl;
+    std::cout << a-- << std::endl;
     std::cout << a << std::endl;
     // std::cout << "a is " << a << std::endl;
     // std::cout << "b is " << b << std::endl;

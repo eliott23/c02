@@ -2,7 +2,6 @@
 
 void   Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits function called" << std::endl;
     fixed_point = raw;
 }
 
@@ -14,7 +13,6 @@ int Fixed::getRawBits(void) const
 
 Fixed::Fixed()
 {
-    std::cout << "Default Contructor Called" << std::endl;
     fixed_point = 0;
 }
 
@@ -87,26 +85,54 @@ bool     Fixed::operator!=(const Fixed i) const
     return (this->fixed_point != i.fixed_point);
 }
 
-Fixed&     Fixed::operator+(Fixed i)
+Fixed     Fixed::operator+(Fixed i)
 {
-    this->fixed_point = this->fixed_point + i.fixed_point;
-    return (*this);
+    i.fixed_point = i.fixed_point + this->fixed_point;
+    return (i);
 }
 
-Fixed&     Fixed::operator-( Fixed i)
+Fixed     Fixed::operator-( Fixed i)
 {
-    this->fixed_point = this->fixed_point - i.fixed_point;
-    return (*this);
+    i.fixed_point = i.fixed_point - this->fixed_point;
+    return (i);
 }
 
-Fixed&     Fixed::operator*( Fixed i)
+Fixed     Fixed::operator*( Fixed i)
 {
     this->fixed_point = (this->fixed_point * i.fixed_point) >> frac_bits;
     return (*this);
 }
 
-Fixed&     Fixed::operator/( Fixed i)
+Fixed     Fixed::operator/( Fixed i)
 {
-    this->fixed_point = (this->fixed_point / i.fixed_point) << frac_bits;
+    this->fixed_point = (this->fixed_point << frac_bits) / i.fixed_point;
     return (*this);
+}
+
+Fixed   Fixed::operator++()
+{
+    this->fixed_point++;
+    return (*this);
+}
+
+Fixed   Fixed::operator++(int i)
+{
+    (void)i;
+    Fixed h = *this;
+    this->fixed_point++;
+    return (h);
+}
+
+Fixed   Fixed::operator--()
+{
+    this->fixed_point--;
+    return (*this);
+}
+
+Fixed   Fixed::operator--(int i)
+{
+    (void)i;
+    Fixed h = *this;
+    this->fixed_point--;
+    return (h);
 }
