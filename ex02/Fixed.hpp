@@ -18,12 +18,12 @@ public:
     Fixed(const int i);
     Fixed(const float i);
     Fixed&  operator=(const Fixed& fi);
-    bool     operator<(const Fixed i) const;
-    bool     operator>(const Fixed i) const;
-    bool     operator>=(const Fixed i) const;
-    bool     operator<=(const Fixed i) const;
-    bool     operator==(const Fixed i) const;
-    bool     operator!=(const Fixed i) const;
+    bool     operator<(const Fixed& i) const;
+    bool     operator>(const Fixed& i) const;
+    bool     operator>=(const Fixed& i) const;
+    bool     operator<=(const Fixed& i) const;
+    bool     operator==(const Fixed& i) const;
+    bool     operator!=(const Fixed& i) const;
     Fixed   operator+(Fixed i);
     Fixed  operator-(Fixed i);
     Fixed  operator*(Fixed i);

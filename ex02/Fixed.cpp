@@ -18,18 +18,15 @@ Fixed::Fixed()
 
 Fixed::~Fixed()
 {
-    std::cout << "Default Destructor Called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fi)
 {
-    std::cout << "Copy constructor called" << std::endl;
     *this = fi;
 }
 
 Fixed& Fixed::operator=(const Fixed& fi)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
     this->fixed_point = fi.getRawBits();
     return (*this);
 }
@@ -60,52 +57,52 @@ int Fixed::toInt(void) const
     return (fixed_point >> frac_bits);
 }
 
-bool     Fixed::operator<(const Fixed i) const
+bool     Fixed::operator<(const Fixed& i) const
 {
-    return (this->fixed_point < i.fixed_point);
+    return (this->fixed_point < i.getRawBits());
 }
 
-bool     Fixed::operator>(const Fixed i) const
+bool     Fixed::operator>(const Fixed& i) const
 {
-    return (this->fixed_point > i.fixed_point);
+    return (this->fixed_point > i.getRawBits());
 }
 
-bool     Fixed::operator>=(const Fixed i) const
+bool     Fixed::operator>=(const Fixed& i) const
 {
-    return (this->fixed_point >= i.fixed_point);
+    return (this->fixed_point >= i.getRawBits());
 }
 
-bool     Fixed::operator<=(const Fixed i) const
+bool     Fixed::operator<=(const Fixed& i) const
 {
-    return (this->fixed_point <= i.fixed_point);
+    return (this->fixed_point <= i.getRawBits());
 }
 
-bool     Fixed::operator!=(const Fixed i) const
+bool     Fixed::operator!=(const Fixed& i) const
 {
-    return (this->fixed_point != i.fixed_point);
+    return (this->fixed_point != i.getRawBits());
 }
 
 Fixed     Fixed::operator+(Fixed i)
 {
-    i.fixed_point = i.fixed_point + this->fixed_point;
+    i.setRawBits((i.getRawBits() + this->fixed_point));
     return (i);
 }
 
 Fixed     Fixed::operator-( Fixed i)
 {
-    i.fixed_point = i.fixed_point - this->fixed_point;
+    i.setRawBits(i.getRawBits() - this->fixed_point);
     return (i);
 }
 
 Fixed     Fixed::operator*( Fixed i)
 {
-    this->fixed_point = (this->fixed_point * i.fixed_point) >> frac_bits;
+    this->fixed_point = (this->fixed_point * i.getRawBits()) >> frac_bits;
     return (*this);
 }
 
 Fixed     Fixed::operator/( Fixed i)
 {
-    this->fixed_point = (this->fixed_point << frac_bits) / i.fixed_point;
+    this->fixed_point = (this->fixed_point << frac_bits) / i.getRawBits();
     return (*this);
 }
 
