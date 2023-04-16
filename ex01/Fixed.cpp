@@ -36,7 +36,7 @@ Fixed& Fixed::operator=(const Fixed& fi)
     return (*this);
 }
 
-Fixed::Fixed(int i)
+Fixed::Fixed(const int i)
 {
     fixed_point = i << frac_bits;
 }
@@ -47,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, Fixed f)
     return os;
 }
 
-Fixed::Fixed(float i)
+Fixed::Fixed(const float i)
 {
     fixed_point = (int)(i * (1 << frac_bits));
 }
