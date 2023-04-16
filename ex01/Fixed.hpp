@@ -21,5 +21,5 @@ public:
     Fixed(const Fixed &fi);
     ~Fixed();
 };
-std::ostream& operator<<(std::ostream& os, Fixed f);
+std::ostream& operator<<(std::ostream& os, const Fixed& f);
 #endif

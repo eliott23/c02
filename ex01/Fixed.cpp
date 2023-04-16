@@ -41,7 +41,7 @@ Fixed::Fixed(const int i)
     fixed_point = i << frac_bits;
 }
 
-std::ostream& operator<<(std::ostream& os, Fixed f)
+std::ostream& operator<<(std::ostream& os, const Fixed& f)
 {
     os << f.toFloat();
     return os;

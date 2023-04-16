@@ -7,7 +7,6 @@ void   Fixed::setRawBits(int const raw)
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits function called" << std::endl;
     return (fixed_point);
 }
 
@@ -36,7 +35,7 @@ Fixed::Fixed(int i)
     fixed_point = i << frac_bits;
 }
 
-std::ostream& operator<<(std::ostream& os, Fixed f)
+std::ostream& operator<<(std::ostream& os, const Fixed& f)
 {
     os << f.toFloat();
     return os;
@@ -90,7 +89,7 @@ Fixed     Fixed::operator+(Fixed i)
 
 Fixed     Fixed::operator-( Fixed i)
 {
-    i.setRawBits(i.getRawBits() - this->fixed_point);
+    i.setRawBits(this->fixed_point - i.getRawBits());
     return (i);
 }
 
