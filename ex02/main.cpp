@@ -12,7 +12,11 @@ int main( void ) {
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
-    f = ((f + f + (a * 9999)) / 0.5f) - 5.5f;
+    Fixed t(0.003f);
+    Fixed h(0.5f);
+    Fixed l(5.5f);
+    Fixed g(9999);
+    f = ((f + f + (t * g)) / h) - l;
     std::cout << f << std::endl;
     std::cout << f-- << std::endl;
     std::cout << f << std::endl;

@@ -3,10 +3,10 @@
 Point::Point()
 {
     x = 0;
-    y = 0;    
+    y = 0;
 }
 
-Point::Point(Point& p)
+Point::Point(const Point& p)
 {
     this->x = p.x;
     this->y = p.y;

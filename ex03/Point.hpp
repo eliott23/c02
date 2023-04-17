@@ -8,7 +8,7 @@ class   Point
     Fixed   getx() const;
     Fixed   gety() const;
     Point();
-    Point(Point& P);
+    Point(const Point& P);
     Point(const float i,const float j);
     Point& operator=(const Point& p);
     ~Point();
@@ -16,4 +16,5 @@ class   Point
     Fixed   x;
     Fixed   y;
 };
+bool bsp( const Point a, const Point b, const Point c, const Point p);
 #endif
