@@ -14,5 +14,8 @@ int main( void ) {
     std::cout << Fixed::max( a, b ) << std::endl;
     f = ((f + f + (a * 9999)) / 0.5f) - 5.5f;
     std::cout << f << std::endl;
+    std::cout << f-- << std::endl;
+    std::cout << f << std::endl;
+    std::cout << --f << std::endl;
     return 0;
 }
