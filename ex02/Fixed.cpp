@@ -21,7 +21,7 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const Fixed &fi)
 {
-    *this = fi;
+    this->fixed_point = fi.fixed_point;
 }
 
 Fixed& Fixed::operator=(const Fixed& fi)
