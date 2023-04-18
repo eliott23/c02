@@ -17,4 +17,6 @@ class   Point
     Fixed   y;
 };
 bool bsp( const Point a, const Point b, const Point c, const Point p);
+Fixed   area(const Point& a,const Point& b,const Point& c);
+Fixed   f_abs(const Fixed& abs);
 #endif

@@ -81,6 +81,11 @@ bool     Fixed::operator!=(const Fixed& i) const
     return (this->fixed_point != i.getRawBits());
 }
 
+bool     Fixed::operator==(const Fixed& i) const
+{
+    return (this->fixed_point == i.getRawBits());
+}
+
 Fixed     Fixed::operator+(const Fixed& i) const
 {
     Fixed tmp;
