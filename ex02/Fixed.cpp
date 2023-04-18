@@ -81,28 +81,37 @@ bool     Fixed::operator!=(const Fixed& i) const
     return (this->fixed_point != i.getRawBits());
 }
 
-Fixed     Fixed::operator+(Fixed i)
+Fixed     Fixed::operator+(const Fixed& i) const
 {
-    i.setRawBits((i.getRawBits() + this->fixed_point));
-    return (i);
+    Fixed tmp;
+    tmp.setRawBits((i.getRawBits() + this->fixed_point));
+    return (tmp);
 }
 
-Fixed     Fixed::operator-( Fixed i)
+Fixed     Fixed::operator-( const Fixed& i) const
 {
-    i.setRawBits(this->fixed_point - i.getRawBits());
-    return (i);
+    Fixed tmp;
+    tmp.setRawBits((this->fixed_point - i.getRawBits()));
+    return (tmp);
 }
 
-Fixed     Fixed::operator*( Fixed i)
+Fixed     Fixed::operator*( const Fixed& i) const
 {
-    this->fixed_point = (this->fixed_point * i.getRawBits()) >> frac_bits;
-    return (*this);
+    Fixed tmp;
+    tmp.setRawBits((this->fixed_point * i.getRawBits()) >> frac_bits);
+    // this->fixed_point = (this->fixed_point * i.getRawBits()) >> frac_bits;
+    return (tmp);
 }
 
-Fixed     Fixed::operator/( Fixed i)
+Fixed     Fixed::operator/(const Fixed& i) const
 {
-    this->fixed_point = (this->fixed_point << frac_bits) / i.getRawBits();
-    return (*this);
+    Fixed tmp;
+    if (!i.fixed_point)
+        tmp.setRawBits(0);
+    else
+        tmp.setRawBits((this->fixed_point << frac_bits) / i.getRawBits());
+    // this->fixed_point = (this->fixed_point << frac_bits) / i.getRawBits();
+    return (tmp);
 }
 
 Fixed   Fixed::operator++()
